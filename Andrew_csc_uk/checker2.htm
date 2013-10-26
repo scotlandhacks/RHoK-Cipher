@@ -30,9 +30,9 @@
 function doMD(){
 var num_rows=localStorage.length;
 var key="userdata."+(num_rows).toString();
-// My test with json
-var myinfo = JSON.parse(localStorage[key]);
-myinfo[7] = myinfo[7]+1;
+// My test with json  //(What are you trying to do here? - lishevita)  
+//var myinfo = JSON.parse(localStorage[key]);
+//myinfo[7] = myinfo[7]+1;
 
 
 var prmstr = window.location.search.substr(1);
@@ -55,8 +55,9 @@ myinfo[8] = 1;
        $("#finished").click(function(){
        window.location = "index.html";
     });
-       $("#ncipher"(.click(function(){
+       $("#ncipher").click(function(){
        window.location = "cipher3.html";
+    });
   });
 
 }
