@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="./assets/ico/favicon.png">
+
+    <title>Cipher 3</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="./assets/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="./assets/css/starter-template.css" rel="stylesheet">
+	  <link href="./assets/css/encoder.css" rel="stylesheet">
+    <link href="./assets/css/slider.css" rel="stylesheet">
+
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="./assets/js/html5shiv.js"></script>
+      <script src="./assets/js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">RHoK: Cipher Challenge (Team Fairycakes)</a>
+        </div>
+        <div class="collapse navbar-collapse">
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+    <div class="container">
+
+     <!--  <div class="starter-template">
+        <h1>Bootstrap starter template</h1>
+        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+      </div> -->
+	  
+	  <div id="encoder-container" class="jumbotron">
+      <h2 id="">ATTN AGENT: Retrieve your training materials from the safe!</h2>
+      
+      <div class="row">
+        <div class="col-md-8" id="encoder">
+          <div id="encoder-outer">
+        
+          </div>
+          <div id="encoder-inner">
+              
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div id="encoder-controls">
+
+            <label for="slider">Decryption Dial Rotation:</label>
+            <input id="slider" type="text" class="span2" value="" data-slider-min="0" data-slider-max="25" data-slider-step="1" data-slider-value="1" data-slider-orientation="horizontal" data-slider-selection="after" data-slider-tooltip="hide">
+
+            <label for="messageIn">Encrypted message:</label>
+            <input class="cryptbox" id="messageIn" type="text" readonly="true" value="CQN YJBBFXAM RB OXAHXDANHNBXWUH" size="50"></input>
+
+            <label for="messageOut">Encoder ring output:</label>
+            <input class="cryptbox" id="messageOut" type="text" readonly="true" value="CQN YJBBFXAM RB OXAHXDANHNBXWUH" size="50"></input>
+
+            <div class="alert alert-success" id="successMsg">
+              <h2 id="successMsg">
+                Correct! Well done! Now please enter your name using the code:</br>
+                <form name="answers" method="get" action="wheelchecker.html" autocomplete="off" />
+                  <input id="input_name" size="10"></input></br>
+                  <input id="result_name" size="10" name="username" readonly="readonly"></input>
+                  <input type="submit" value="Submit Solution" />
+                </form>
+                <button>
+              </h2>
+            </div>
+            <div class="alert alert-warning" id="incorrectMsg">
+              <h2 id="successMsg">
+                That's not the right combination. Try moving the slider to open the safe.
+              </h2>
+            </div>
+            
+          </div>
+        </div>
+        
+      </div>
+		 
+		  
+		  
+
+      
+
+	  	
+	  </div>
+
+
+
+    
+
+
+
+    </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="./assets/js/jquery-2.0.3.min.js"></script>
+    <script src="./assets/js/bootstrap.min.js"></script>
+    <script src="./assets/js/bootstrap-slider.js"></script>
+
+    <script type="text/javascript">
+    function rotX(input, rotNum)
+    {
+      var out = input.replace(/[a-zA-Z]/g, function(c){
+        return String.fromCharCode((c <= "Z" ? 90 : 122) >= (c = c.charCodeAt(0) + rotNum) ? c : c - 26);
+    });
+      return out; 
+    }
+ 
+    function doDecrypt(rotValue) {
+      return rotX(messageIn, rotValue);
+    }
+
+    var doDecryptSlider = function() {
+
+      messageTest = doDecrypt(foo.getValue());
+      $('#encoder-inner').css({'-webkit-transform': 'rotate('+ (foo.getValue() * 13.84) +'deg)'})
+
+      if(foo.getValue() == correctRot)
+      {
+        // alert("Well done!");
+
+       $('#incorrectMsg').hide();
+       $('#successMsg').show(250);
+
+      } else {
+        $('#successMsg').hide();
+        $('#incorrectMsg').show(250);
+      }
+
+      $('#messageOut').val(messageTest);
+
+    }
+
+    var foo = $('#slider').slider().on('slide', doDecryptSlider).data('slider');
+
+    var messageIn = "CQN YJBBFXAM RB OXAHXDANHNBXWUH"; //rotX("THE PASSWORD IS FORYOUREYESONLY",9);
+    var correctRot = 17;
+    var messageOut = "";
+    var messageTest = "";
+
+
+
+    $("#input_name").on("input", function() {
+      console.log("hi");
+      $("#result_name").val(rotX($("#input_name").val(),foo.getValue()));
+    });
+
+
+
+
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,58 @@
+div#encoder-container{
+
+}
+
+div#encoder{
+	height:540px;
+}
+
+div#encoder-outer{
+	background-image:url('../img/Encoder-wheel.png');
+	width: 558px;
+	height:561px;
+	z-index: 0;
+	position: absolute;
+	/*-webkit-transform:rotate(50deg);*/
+	-webkit-filter: drop-shadow(4px 4px 5px rgba(50, 50, 50, 0.6));
+	-filter: drop-shadow(4px 4px 5px rgba(50, 50, 50, 0.6));
+
+}
+
+div#encoder-inner{
+	background-image:url('../img/Encoder-wheel.png');
+	background-size: contain;
+	width: 446px;
+	height:448px;
+	z-index: 1;
+	position: relative;
+	left:56px;
+	top:56.5px;
+	-webkit-transition: all 0.25s ease-in-out;
+	transition: all 0.25s ease-in-out;
+	/*-webkit-transform:rotate(40deg);*/
+	-webkit-filter: drop-shadow(0px 0px 5px rgba(50, 50, 50, 0.6));
+	-filter: drop-shadow(0px 0px 5px rgba(50, 50, 50, 0.6));
+/*box-shadow: 4px 4px 5px 3px rgba(50, 50, 50, 0.6);*/
+
+}
+
+div#encoder-controls{
+	left: 558px;
+}
+
+
+input.cryptbox {
+	width:100%;
+	font-size: 20px;
+	font-family: "Courier New", Courier, monospace;
+}
+
+
+div#successMsg {
+	display: none;
+}
+
+div#incorrectMsg {
+	display: block;
+}
+
