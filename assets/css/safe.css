@@ -41,12 +41,22 @@ div#encoder-controls{
 }
 
 
-input.cryptbox {
+.cryptbox {
+	width:100%;
+	background-color: #fcf8e3;
+	font-size: 20px;
+	font-family: "Courier New", Courier, monospace;
+}
+
+.solutionbox {
 	width:100%;
 	font-size: 20px;
 	font-family: "Courier New", Courier, monospace;
 }
 
+#crypto_name {
+    font-weight: bold;
+}
 
 div#successMsg {
 	display: none;

@@ -62,21 +62,22 @@
             <input id="slider" type="text" class="span2" value="" data-slider-min="0" data-slider-max="25" data-slider-step="1" data-slider-value="1" data-slider-orientation="horizontal" data-slider-selection="after" data-slider-tooltip="hide">
 
             <label for="messageIn">Encrypted message:</label>
-            <input class="cryptbox" id="messageIn" type="text" readonly="true" value="CQN YJBBFXAM RB OXAHXDANHNBXWUH" size="50"></input>
+            <div class="cryptbox" id="messageIn">CQN YJBBFXAM RB OXAHXDANHNBXWUH</div>
 
             <label for="messageOut">Encoder ring output:</label>
-            <div class="cryptbox" id="messageOut" size="50">CQN YJBBFXAM RB OXAHXDANHNBXWUH</div>
+            <div class="solutionbox" id="messageOut" size="50">CQN YJBBFXAM RB OXAHXDANHNBXWUH</div>
 
             <div class="alert alert-success" id="successMsg">
               <h2 id="successMsg">
                 Correct! Well done! Now please enter your name using the code:</h2>
                 <form name="answers" method="get" action="wheelchecker.html" autocomplete="off" />
-                  <input id="input_name" size="10"></input></br>
-                  <input id="result_name" size="10" name="username" readonly="readonly"></input>
+                  <input id="input_name" size="15"></input><br />
+                  Your code name is <span id="crypto_name"></span>.<br />
+                  <input id="result_name" type="hidden" name="username" readonly="readonly"></input>
                   <input type="submit" value="Submit Solution" />
                 </form>
             </div>
-            <div class="alert alert-warning" id="incorrectMsg">
+            <div class="alert" id="incorrectMsg">
               <h2 id="successMsg"></h2>
             </div>
             
@@ -139,7 +140,7 @@
         $('#incorrectMsg').show(250);
       }
 
-      $('#messageOut').innerHTML(messageTest);
+      $('#messageOut').html(messageTest);
 
     }
 
@@ -154,7 +155,9 @@
 
     $("#input_name").on("input", function() {
       console.log("hi");
-      $("#result_name").val(rotX($("#input_name").val(),foo.getValue()));
+	var codename = rotX($("#input_name").val(),foo.getValue());
+      $("#crypto_name").html(codename);
+      $("#result_name").val(codename);
     });
 
 
