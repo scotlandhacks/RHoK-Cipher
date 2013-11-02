@@ -10,7 +10,8 @@ $(function() {
     var answer = doDM();
 
     if(answer == "1"){  
-  //correct
+  //correct  
+	alert("you rock");
   e = document.getElementById('output');
 	e.innerHTML= $("#praise").val();
 
