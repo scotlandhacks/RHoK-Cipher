@@ -1,12 +1,29 @@
-<!doctype html>
- 
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
     <meta charset="utf-8" />
     <title>Cyber Security Challenge Cipher</title>
     <link rel="stylesheet" href="./assets/css/jquery-ui.css" />
     <script src="./assets/js/jquery-1.8.2.js"></script>
     <script src="./assets/js/jquery-ui.js"></script>
+
+ 
+<script type="text/javascript">
+
+function doDM() {
+  answer = $("#answer").val;
+   md5pass = hex_md5(answer);
+  // alert(md5pass);
+  if(md5pass=="a54e549f884708fc85e0a0c95ac7b90a" || md5pass=="81bb815e4dbf592b71350675e9d0e29a" || md5pass=="ae7ac5ec81f178064352e51500afe8a5" || md5pass=="f17140508733f4e33e080ea4803b0328" || md5pass=="0e7d148b31e85c81f0fd90c16c11823e" || md5pass=="73509c631228a2494985c7a403e55b68" || md5pass=="87552fe15c819c2443e25bb6f137a57e" || md5pass=="01ac8fa52b4ec67918e8815d109cb432" || md5pass=="e05eab1bbbf429252508c50209a4ee1d" || md5pass=="b8feb5b3e53daeed8fa47f130fe63130" || md5pass=="6aca810f8cdad4b1e80cfccc361c8f5b" || md5pass=="416ea3ab05915eb49688b96a0f6ae260" || md5pass=="8ea3cfc0b3bc018ee72b74c7d24cce24" || md5pass=="47df98f4da3dd40aa51bf18e58a1464d"|| md5pass=="e419cc234eca77a9c97538fad6fd92fc" || md5pass=="4491f5e98bde2887d9db252729376525"|| md5pass=="82438febc64b807957737cff7b18bf0c"){
+    return 1;
+
+   } else {
+     return 0;
+   }
+}
+</script>
+ 
+    <script src="./assets/js/checker.js"></script>
     <link rel="stylesheet" href="./assets/css/style.css" />
     <style>
     	#draggable { width: 507px; height: 528px; padding: 0px; border:none;float:right;}
@@ -44,8 +61,8 @@
           <img src="./assets/img/YourSkills1.png"/>
       </div><br />
       <div style="position:absolute;left:55%;top:650px;">
-      <b>Solution:</b> <form name="answers" method="get" action="checker.htm" autocomplete="off" />
-      <input type="text" name="answer" style="width:300px" autocomplete="off" />&nbsp;&nbsp;&nbsp;<input type="submit" value="Submit" onclick=""checkResponse(praise, encourage);return false;" />
+      <b>Solution:</b> <form name="answers" action="" autocomplete="off" ><input type="hidden" value="WELL DONE - We need your CYBER SECURITY SKILLS!" /><input type="hidden" value="Bad Luck, that solution is incorrect.<br>" /> 
+      <input type="text" name="answer" style="width:300px" autocomplete="off" />&nbsp;&nbsp;&nbsp;<input type="submit" value="Submit" class=".subbtn" />
       </form>
       </div>
     </div>
@@ -67,22 +84,6 @@
 <button id="finished">I'm finished. Submit my results</button>
 
 </div>
- 
-<script type="text/javascript">
-var praise = "WELL DONE - We need your CYBER SECURITY SKILLS!"
-var encourage = "Bad Luck, that solution is incorrect.<br>";
 
-function doDM() {
-  answer = $("#answer").val;
-   md5pass = hex_md5(answer);
-  // alert(md5pass);
-  if(md5pass=="a54e549f884708fc85e0a0c95ac7b90a" || md5pass=="81bb815e4dbf592b71350675e9d0e29a" || md5pass=="ae7ac5ec81f178064352e51500afe8a5" || md5pass=="f17140508733f4e33e080ea4803b0328" || md5pass=="0e7d148b31e85c81f0fd90c16c11823e" || md5pass=="73509c631228a2494985c7a403e55b68" || md5pass=="87552fe15c819c2443e25bb6f137a57e" || md5pass=="01ac8fa52b4ec67918e8815d109cb432" || md5pass=="e05eab1bbbf429252508c50209a4ee1d" || md5pass=="b8feb5b3e53daeed8fa47f130fe63130" || md5pass=="6aca810f8cdad4b1e80cfccc361c8f5b" || md5pass=="416ea3ab05915eb49688b96a0f6ae260" || md5pass=="8ea3cfc0b3bc018ee72b74c7d24cce24" || md5pass=="47df98f4da3dd40aa51bf18e58a1464d"|| md5pass=="e419cc234eca77a9c97538fad6fd92fc" || md5pass=="4491f5e98bde2887d9db252729376525"|| md5pass=="82438febc64b807957737cff7b18bf0c"){
-    return 1;
-
-   } else {
-     return 0;
-   }
-</script>
- 
 </body>
 </html>

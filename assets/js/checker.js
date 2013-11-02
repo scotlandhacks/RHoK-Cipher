@@ -1,4 +1,6 @@
-function checkResponse(praise, encourage){
+$(function() {  
+    $(".button").click(function() {
+
   var num_rows=localStorage.length;
   var key="userdata."+(num_rows).toString();
   // My test with json
@@ -10,7 +12,7 @@ function checkResponse(praise, encourage){
     if(answer == "1"){  
   //correct
   e = document.getElementById('output');
-      e.innerHTML= praise;
+	e.innerHTML= $("#praise").val();
 
 
   myinfo[6] = 1 ;
@@ -32,7 +34,7 @@ function checkResponse(praise, encourage){
   else{
   //failed
   e = document.getElementById('output');
-      e.innerHTML= encourage;
+      e.innerHTML= $("#encourage").val();
 
   $("#wrong").css("visibility","visible");
 
@@ -53,4 +55,7 @@ function checkResponse(praise, encourage){
   }
   textToAdd=JSON.stringify(myinfo);
   localStorage[key]=textToAdd;
-}
+    });
+});
+
+
