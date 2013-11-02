@@ -1,5 +1,5 @@
 $(function() {  
-    $(".button").click(function() {
+    $(".subbtn").click(function() {
 
   var num_rows=localStorage.length;
   var key="userdata."+(num_rows).toString();
@@ -7,12 +7,11 @@ $(function() {
   var myinfo = JSON.parse(localStorage[key]);
   myinfo[5] = myinfo[5]+1;
 
-    var answer = doDM();
-
+    answer = doDM();
+	$("#checker").css("visibility","visible");
     if(answer == "1"){  
   //correct  
-	alert("you rock");
-  e = document.getElementById('output');
+          e = document.getElementById('output');
 	e.innerHTML= $("#praise").val();
 
 
@@ -45,7 +44,7 @@ $(function() {
            window.location = "cipher.htm";
         });
         $("#giveup").click(function(){
-            window.location = "index.htm";
+            window.location = "index.html";
         });           
        $("#hint").click(function(){
             $("#hintbox").css("display","block");
@@ -56,7 +55,9 @@ $(function() {
   }
   textToAdd=JSON.stringify(myinfo);
   localStorage[key]=textToAdd;
-    });
+  return false; 
+   });
+    
 });
 
 
