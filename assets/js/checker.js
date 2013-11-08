@@ -1,11 +1,30 @@
-$(function() {  
-    $(".subbtn").click(function() {
-
+$(function() { 
+  // parse the userdata for the current user from localStorage
   var num_rows=localStorage.length;
   var key="userdata."+(num_rows).toString();
-  // My test with json
   var myinfo = JSON.parse(localStorage[key]);
-  myinfo[5] = myinfo[5]+1;
+  
+  // If an agentname has been given, use it
+   var agentnym;
+    if(myinfo.agent){
+	agentnym = myinfo.agent;
+    } else {
+	agentnym = "Agent";
+    }  
+
+
+    $("#attnAgent").html("Attention "+agentnym+": "+$("#attnAgent").html());
+
+   // Place the correct links/buttons in based on our current page
+    thisPage = pages[myinfo.page];    
+    nextPage = pages[parseInt(myinfo.page) + 1]; 
+
+    $(".subbtn").click(function() {
+	if(myinfo.tries){
+	    myinfo.tries = myinfo.tries + 1;
+	} else {
+	    myinfo.tries = 1;
+	}
 
     answer = doDM();
 	$("#checker").css("visibility","visible");
@@ -14,9 +33,13 @@ $(function() {
   //correct  
 	$("#checker").addClass("alert-success");
  	$("#output").html($("#praise").val());
+     
+        // Handles the page where the agentnym is set
+        if($("#agentnym")){
+	    myinfo.agent = $("#agentnym").val();
+        }
 
-
-  myinfo[6] = 1 ;
+  myinfo.success = 1 ;
 
 
   // start of jquery button stuff for right answers
@@ -24,7 +47,12 @@ $(function() {
 
     $(function(){
        $("#harder").click(function(){
-         window.location = "cipher2.html";
+	  // increment the page number
+	  myinfo.page = parseInt(myinfo.page) + 1;
+          textToAdd=JSON.stringify(myinfo);
+          localStorage[key]=textToAdd;
+  
+         window.location = nextPage;
       });
        $("#finished").click(function(){
          window.location = "index.html";
@@ -42,7 +70,7 @@ $(function() {
   // start of jquery button stuff
     $(function() {
         $("#tryagain").click(function(){
-           window.location = "cipher.html";
+           window.location = thisPage;
         });
         $("#giveup").click(function(){
             window.location = "index.html";

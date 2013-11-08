@@ -37,6 +37,10 @@
   </style>
     <!-- Bootstrap core CSS -->
   <link href="./assets/css/bootstrap.css" rel="stylesheet">
+
+  <!-- a couple more styles used by all ciphers--> 
+    <link rel="stylesheet" href="./assets/css/style.css" />
+
   </head>
   <body>
       <div class="navbar navbar-inverse navbar-fixed-top">
@@ -55,7 +59,7 @@
     </div>
     <div class="container" style="background-color:#ddd">
       <div class="row" style="margin-top:60px; margin-left:20px;">
-        <h3 id="attnAgent">ATTN AGENT: Match the horizontal and vertical letters from the clues on the right.</h3>
+        <h3 id="attnAgent">Match the horizontal and vertical letters from the clues on the right.</h3>
       </div>
       <div class="row" >
         <div class="col-md-6" id="encoder">
@@ -68,13 +72,33 @@
           </table>
           <br /> <br />
           <h2>Your Solution:</h2>
-          <form name="answers" method="get" action="checker2.htm" autocomplete="off" />
-          <input type="text" name="answer" style="width:300px" autocomplete="off" /><input type="submit" value="Submit Solution" />
+          <form name="answers" method="get" action="" autocomplete="off" />
+          <input type="text" name="answer" style="width:300px" autocomplete="off" /><input type="submit" value="Submit Solution" class="subbtn" />
           </form>
         </div>
       </div>
       
     </div>
+
+
+<!-- Solution Starts Here -->
+<div id="checker" class="alert">
+  <div id="output"> </div>
+  <div id="hintbox" style="display:none;padding:10px; margin:5px; border:1px blue dotted;">Remember playing Battleships? </div>
+  <div id="wrong" style="visibility:hidden;">
+    <button id="tryagain" class="btn btn-primary">Try Again</button>
+    <button id="hint" class="btn btn-warning">Give me a Hint</button>
+    <button id="giveup" class="btn btn-info"> Give up on this!</button>
+  </div> 
+
+  <div id="right" style="visibility:hidden">
+    <button id="harder" class="btn btn-primary">Give me a harder one!</button>
+    <button id="finished" class="btn btn-info">I'm finished. Submit my results</button>
+
+  </div>
+</div>
+
+
     <script>
       var currentMousePos = { x: -1, y: -1 };
       var canvas = document.getElementById('myCanvas');
@@ -107,5 +131,28 @@
     <script src="./assets/js/jquery-2.0.3.min.js"></script>
     <script src="./assets/js/bootstrap.min.js"></script>
     <script src="./assets/js/bootstrap-slider.js"></script>
+
+  <!-- This is our universal code for all cipher pages. -->
+    <script src="pageOrder.js"></script>
+    <script src="./assets/js/checker.js"></script>
+
+
+    <!-- Our answer-checking code -->
+    <script type="text/javascript">
+      function doDM() {
+        var answer = $("#answer").val();
+        md5pass = hex_md5(answer);
+        //  alert(md5pass); <!-- If you need to figure out which codes to stick below during dev, this alert box will help you. -->
+        <!-- Put in each md5 that you will accept as a correct answer.  -->
+        <!-- Remember things like spaces/not spaces, initial caps, camel case, all caps, no caps, etc -->
+        if(md5pass=="4449f8046ccde6c9e0ea7011b69e8cb0" || md5pass=="0b569a11ad64159f90ab3afb7e9b6227" || md5pass=="e02a8c3c55952f4f3b7ae2ca9a93aa4f" || md5pass=="ba9b301c7f458ce81c76186efa9a5cb2" || md5pass=="73c45d2a50b6838fa977a8c9f4a0b580" || md5pass=="3faa400f0d290eb4944d6bd87fe7533e" || md5pass=="40264c27aac0b5f46cfbe83962572394" || md5pass=="e4cc6d7f8cfa63d23d98a2123412f606" || md5pass=="97e50acda5ff90ca58734550ccfca17a" || md5pass=="0f9aac4df767ced33cd6f8b75ab19eab" || md5pass=="a64cd6d7514f4b3ebf892ec6a5a6b562" || md5pass=="efe6956db0e8d8170133e18bedf61b2e" || md5pass=="b476553d9d3db58bba069edd994d08a2" || md5pass=="e943a9663e9a8f39025a0105a2c347d4"){
+        return 1;
+
+        } else {
+         return 0;
+        }
+      }
+    </script>
+
   </body>
 </html>

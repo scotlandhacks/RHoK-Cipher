@@ -46,7 +46,7 @@
 
     <div class="container">
 	  <div id="encoder-container" class="jumbotron">
-      <h2 id="attnAgent">ATTN AGENT: Retrieve your training materials from the safe!</h2>
+      <h2 id="attnAgent">Retrieve your training materials from the safe!</h2>
       
       <div class="row">
         <div class="col-md-8" id="encoder">
@@ -76,7 +76,7 @@
 	      <form name="answers" action="" autocomplete="off" ><input type="hidden" id="praise" value="<h2>Good Start!</h2> Are you ready for the next challenge?" />
            <input id="input_name" size="15"></input><br />
                   Your code name is <span id="crypto_name"></span>.<br />
-                  <input id="result_name" type="hidden" name="username" readonly="readonly"></input>
+                  <input id="agentnym" type="hidden" name="agentnym" readonly="readonly"></input>
            <input type="submit" value="Open The Safe" class="subbtn" />
                 </form>
             </div>
@@ -166,7 +166,7 @@
       console.log("hi");
 	var codename = rotX($("#input_name").val(),foo.getValue());
       $("#crypto_name").html(codename);
-      $("#result_name").val(codename);
+      $("#agentnym").val(codename);
     });
 
    function doDM(){

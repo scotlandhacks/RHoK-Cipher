@@ -1,39 +1,44 @@
 <html>
 <head>
+<!-- This is where we get our page order -->
+   <script src="pageOrder.js"></script>
+ 
+<!-- This sets up our JSON for tracking things  -->
 <script type="text/javascript">
 function parse_form(){
 
-var fname=document.forms["reg-form"]["fname"].value;
-var lname=document.forms["reg-form"]["lname"].value;
-var dd=document.forms["reg-form"]["dd"].value;
-var mm=document.forms["reg-form"]["mm"].value;
-var yyyy=document.forms["reg-form"]["yyyy"].value;
-var school=document.forms["reg-form"]["school"].value;
-var email=document.forms["reg-form"]["email"].value;
+    var fname=document.forms["reg-form"]["fname"].value;
+    var lname=document.forms["reg-form"]["lname"].value;
+    var dd=document.forms["reg-form"]["dd"].value;
+    var mm=document.forms["reg-form"]["mm"].value;
+    var yyyy=document.forms["reg-form"]["yyyy"].value;
+    var school=document.forms["reg-form"]["school"].value;
+    var email=document.forms["reg-form"]["email"].value;
 
-if (fname==null || fname=="" ||  lname==null || lname=="" || dd==null || dd=="" || mm==null || mm=="" || yyyy==null || yyyy=="" || email==null || email=="" ||school==null || school=="" ){
-alert("please fill out all form fields");
-return false;
-}
-if(document.getElementById("data_collection").checked ) {
+    if (fname==null || fname=="" ||  lname==null || lname=="" || dd==null || dd=="" || mm==null || mm=="" || yyyy==null || yyyy=="" || email==null || email=="" ||school==null || school=="" ){
+       alert("please fill out all form fields");
+       return false;
+     }
+     if(document.getElementById("data_collection").checked ) {
 
-  var dob=dd+'/'+mm+'/'+yyyy;
-  var textToAdd="<tr style='background:#FF0000' ><td>"+fname+"</td><td>"+lname+"</td><td>"+dob+"</td><td>"+email+"</td></tr>";
-} else {
-  var textToAdd="<tr style='bacground:#FF0000' ><td>Withheld</td><td>Withheld</td><td>Withheld</td><td>Withheld</td></tr>";
-   fname = "Withheld";
-   lname = "Withheld";
-   dob = "Withheld";
-   email = "Withheld";
-   school = "Withheld";
+          var dob=dd+'/'+mm+'/'+yyyy;
+         // var textToAdd="<tr style='background:#FF0000' ><td>"+fname+"</td><td>"+lname+"</td><td>"+dob+"</td><td>"+email+"</td></tr>";
+      } else {
+          // var textToAdd="<tr style='bacground:#FF0000' ><td>Withheld</td><td>Withheld</td><td>Withheld</td><td>Withheld</td></tr>";
+          fname = "Withheld";
+          lname = "Withheld";
+          dob = "Withheld";
+          email = "Withheld";
+          school = "Withheld";
 }
 var num_rows=localStorage.length;
 var key="userdata."+(num_rows+1).toString();
-var triesA=0, succeedA=0, triesB=0, succeedB=0;  
-var myinfo = [ fname,lname,dob,school,email,triesA,succeedA,triesB,succeedB ];
+var myinfo =  {"fname":fname , "lname" : lname, "dob": dob, "school": school, "email": email, "page": "1"};
 textToAdd=JSON.stringify(myinfo);
 
 localStorage[key]=textToAdd;
+window.location = pages[1];
+return false;
 }                    
 </script>
 <style>
@@ -53,7 +58,7 @@ label {
 <img src="logos.png" style="position:absolute;margin-left:-231px;left:50%;"/>
 <div id="form-div" style="position:absolute;width:400px;margin-left:-200px;left:50%; background:#234390;top:150px;color:white;">
 <table>
-<form name="reg-form" action="cipher.htm" method="post" onsubmit="return parse_form()" autocomplete="off">
+<form name="reg-form" method="post" onsubmit="return parse_form()" autocomplete="off">
 <tr><th>First Name:</th><td><input type="text" name="fname" style="width:100%"/></td></tr>
 <tr><th>Last Name:</th><td><input type="text" name="lname" style="width:100%"/></td></tr>
 <tr><th>Date of Birth:</th><td>
