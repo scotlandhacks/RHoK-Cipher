@@ -20,10 +20,12 @@ $(function() {
     nextPage = pages[parseInt(myinfo.page) + 1]; 
 
     $(".subbtn").click(function() {
-	if(myinfo.tries){
-	    myinfo.tries = myinfo.tries + 1;
+	if(!myinfo.cipher[myinfo.page]){
+	    myinfo.cipher[myinfo.page] = {"tries" : "1", "success": "0"};
+	
 	} else {
-	    myinfo.tries = 1;
+	    var tries = parseInt(myinfo.cipher[myinfo.page].tries) + 1;
+	    myinfo.cipher[myinfo.page] = {"tries": tries, "success": "0"};
 	}
 
     answer = doDM();
@@ -39,7 +41,7 @@ $(function() {
 	    myinfo.agent = $("#agentnym").val();
         }
 
-  myinfo.success = 1 ;
+  myinfo.cipher[myinfo.page].success = 1 ;
 
 
   // start of jquery button stuff for right answers
