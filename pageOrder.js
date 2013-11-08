@@ -19,5 +19,5 @@ var pages = {
       "1":"safe.html",
       "2":"battleship.html",
       "3":"cipher.html",
-      "4":"done",
+      "4":"done.html",
     };

@@ -33,7 +33,7 @@ function parse_form(){
 }
 var num_rows=localStorage.length;
 var key="userdata."+(num_rows+1).toString();
-var myinfo =  {"fname":fname , "lname" : lname, "dob": dob, "school": school, "email": email, "page": "1", "cipher": {"tries": 0, "success": 0}};
+var myinfo =  {"fname":fname , "lname" : lname, "dob": dob, "school": school, "email": email, "page": "1", "cipher": {0: {"tries": 0, "success": 0}}};
 textToAdd=JSON.stringify(myinfo);
 
 localStorage[key]=textToAdd;
