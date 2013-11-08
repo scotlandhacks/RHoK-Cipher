@@ -10,6 +10,9 @@
 
     <!-- Bootstrap core CSS -->
     <link href="./assets/css/bootstrap.css" rel="stylesheet">
+ 
+  <!-- a couple more styles used by all ciphers--> 
+    <link rel="stylesheet" href="./assets/css/style.css" />
 
     <!-- Custom styles for this template -->
     <link href="./assets/css/starter-template.css" rel="stylesheet">
@@ -70,11 +73,11 @@
             <div class="alert alert-success" id="successMsg">
               <h2 id="successMsg">
                 Correct! Well done! Now please enter your name using the code:</h2>
-                <form name="answers" method="get" action="safe-checker.html" autocomplete="off" />
-                  <input id="input_name" size="15"></input><br />
+	      <form name="answers" action="" autocomplete="off" ><input type="hidden" id="praise" value="<h2>Good Start!</h2> Are you ready for the next challenge?" />
+           <input id="input_name" size="15"></input><br />
                   Your code name is <span id="crypto_name"></span>.<br />
                   <input id="result_name" type="hidden" name="username" readonly="readonly"></input>
-                  <input type="submit" value="Open The Safe" />
+           <input type="submit" value="Open The Safe" class="subbtn" />
                 </form>
             </div>
             <div class="alert" id="incorrectMsg">
@@ -110,6 +113,12 @@
     <script src="./assets/js/bootstrap.min.js"></script>
     <script src="./assets/js/bootstrap-slider.js"></script>
 
+
+  <!-- This is our universal code for all cipher pages. -->
+    <script src="./assets/js/pageOrder.js"></script>
+    <script src="./assets/js/checker.js"></script>
+
+ <!-- This is code just for THIS page -->
     <script type="text/javascript">
     function rotX(input, rotNum)
     {
@@ -160,10 +169,26 @@
       $("#result_name").val(codename);
     });
 
-
+   function doDM(){
+     // in this page no one hits submit unless 
+     // they got the answer right already.
+     return 1;
+    };
 
 
 
     </script>
+
+
+<!-- Solution Starts Here -->
+<div id="checker" class="alert">
+<div id="output"> </div>
+<div id="right" style="visibility:hidden">
+<button id="harder" class="btn btn-primary">Give me a harder one!</button>
+<button id="finished" class="btn btn-info">I'm finished. Submit my results</button>
+
+</div>
+</div>
+
   </body>
 </html>

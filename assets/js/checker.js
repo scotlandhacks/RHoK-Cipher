@@ -9,10 +9,11 @@ $(function() {
 
     answer = doDM();
 	$("#checker").css("visibility","visible");
+
     if(answer == "1"){  
   //correct  
-          e = document.getElementById('output');
-	e.innerHTML= $("#praise").val();
+	$("#checker").addClass("alert-success");
+ 	$("#output").html($("#praise").val());
 
 
   myinfo[6] = 1 ;
@@ -23,25 +24,25 @@ $(function() {
 
     $(function(){
        $("#harder").click(function(){
-         window.location = "cipher2.htm";
+         window.location = "cipher2.html";
       });
        $("#finished").click(function(){
-         window.location = "index.htm";
+         window.location = "index.html";
       });
     });
 
   }
   else{
   //failed
-  e = document.getElementById('output');
-      e.innerHTML= $("#encourage").val();
+	$("#checker").addClass("alert-info");
+      $("#output").html($("#encourage").val());
 
   $("#wrong").css("visibility","visible");
 
   // start of jquery button stuff
     $(function() {
         $("#tryagain").click(function(){
-           window.location = "cipher.htm";
+           window.location = "cipher.html";
         });
         $("#giveup").click(function(){
             window.location = "index.html";

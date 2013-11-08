@@ -1,15 +1,18 @@
 body {
 	font-family: "Trebuchet MS", "Helvetica", "Arial",  "Verdana", "sans-serif";
-	font-size: 62.5%;
+
 }
 
-#checker {
+ #checker {
     position: absolute;
     top: 40%;
     left: 30%;
     width: 40%;
     min-height: 20%;
-    padding: 10px;
-    background-color: azure;
+    z-index: 9;
     visibility: hidden;
+}
+
+#output {
+    margin-bottom: 1em;
 }
