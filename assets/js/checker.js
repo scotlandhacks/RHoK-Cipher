@@ -16,8 +16,8 @@ $(function() {
     $("#attnAgent").html("Attention "+agentnym+": "+$("#attnAgent").html());
 
    // Place the correct links/buttons in based on our current page
-    thisPage = pages[myinfo.page];    
-    nextPage = pages[parseInt(myinfo.page) + 1]; 
+    thisPage = pages[myinfo.page] +".html";    
+    nextPage = pages[parseInt(myinfo.page) + 1] + ".html"; 
 
     $(".subbtn").click(function() {
 	if(!myinfo.cipher[myinfo.page]){

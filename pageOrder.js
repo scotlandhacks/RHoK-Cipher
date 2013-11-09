@@ -15,9 +15,9 @@
 ***/
 
 var pages = {
-      "0":"index.html" ,
-      "1":"safe.html",
-      "2":"battleship.html",
-      "3":"cipher.html",
-      "4":"done.html",
+      "0":"index" ,
+      "1":"safe",
+      "2":"battleship",
+      "3":"cipher",
+      "4":"done",
     };
