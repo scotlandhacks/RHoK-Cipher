@@ -68,7 +68,10 @@
           <br /> <br />
           <h2>Your Solution:</h2>
           <form name="answers" action="" autocomplete="off" />
-          <input type="text" name="answer" style="width:300px" autocomplete="off" /><input type="submit" value="Submit Solution" class="subbtn" />
+<!-- Change the working on these two values  -->
+<input type="hidden" id="praise" value="<h2>Yes!</h2> You're in!" /><input type="hidden" id="encourage" value="<h2>Oops...</h2> that's not right. Try again.<br>" /> 
+
+          <input type="text" id="answer" name="answer" style="width:300px" autocomplete="off" /><input type="submit" value="Submit Solution" class="subbtn" />
           </form>
         </div>
       </div>
@@ -127,6 +130,8 @@
     <script src="./assets/js/bootstrap.min.js"></script>
     <script src="./assets/js/bootstrap-slider.js"></script>
 
+<!-- md5 encoder javascript -->
+    <script type="text/javascript" src="./assets/js/md5-min.js"></script>
   <!-- This is our universal code for all cipher pages. -->
     <script src="pageOrder.js"></script>
     <script src="./assets/js/checker.js"></script>

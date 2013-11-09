@@ -27,7 +27,6 @@ $(function() {
 	    var tries = parseInt(myinfo.cipher[myinfo.page].tries) + 1;
 	    myinfo.cipher[myinfo.page] = {"tries": tries, "success": "0"};
 	}
-
     answer = doDM();
 	$("#checker").css("visibility","visible");
 
@@ -64,7 +63,7 @@ $(function() {
   }
   else{
   //failed
-	$("#checker").addClass("alert-info");
+      $("#checker").addClass("alert-info");
       $("#output").html($("#encourage").val());
 
   $("#wrong").css("visibility","visible");
@@ -81,7 +80,6 @@ $(function() {
             $("#hintbox").css("display","block");
        });
     });
-
 
   }
   textToAdd=JSON.stringify(myinfo);
