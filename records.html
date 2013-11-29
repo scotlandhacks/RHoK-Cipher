@@ -1,0 +1,112 @@
+<html>
+<head>
+ <!-- Bootstrap core CSS -->
+ <!--   <link href="./assets/css/bootstrap.css" rel="stylesheet"> -->
+ <!-- jQueryUI CSS and javascript -->
+ <!--   <link rel="stylesheet" href="./assets/css/jquery-ui.css" /> -->
+    <script src="./assets/js/jquery-1.8.2.js"></script>
+    <script src="./assets/js/jquery-ui.js"></script>
+
+
+<!-- Our page order Script -->
+    <script src="./pageOrder.js"></script>
+
+
+<script type="text/javascript">
+function displayScores(){
+  var myinfo, line;
+  // This is where we print the header line for the table
+
+   var theadLine = "<tr><th>First Name</th><th>Last Name</th><th>DoB</th><th>School</th><th>E-Mail</th>";
+    for (page in Object.keys(pages)){
+     if (page > 0) {
+        theadLine = theadLine+"<th>Tries<br />cipher "+page+"</th><th>Success?</th>";
+        
+     }
+   }
+   theadLine += "</tr>";
+   $('thead').html(theadLine);
+  var outDiv = document.getElementById('tab-body');
+  for( i in localStorage){
+      myinfo = JSON.parse(localStorage[i]);
+      // If they got success on all pages, be green
+      // BTW, there is an extra "done" page (no cipher) to ignore
+      var pageLength = Object.keys(pages).length-1;
+      var cipherLength = Object.keys(myinfo.cipher).length;
+      if(pageLength == cipherLength){
+         if(myinfo.cipher[cipherLength-1]["success"] == "1" ){
+      line = "<tr class='allright'>";
+          }
+      } else if (cipherLength < 3 && myinfo.cipher[cipherLength-1]["success"] == "0") { 
+      
+      line = "<tr class='noneright'>";
+      } else {
+      line = "<tr class='someright'>";
+      }
+     line += "<td>"+myinfo.fname+"</td><td>"+myinfo.lname+"</td><td>"+myinfo.dob+"</td><td>"+myinfo.school+"</td><td>"+myinfo.email+"</td><td class='number'>"+myinfo[5]+"</td><td class='number'>"+myinfo[6]+"</td><td class='number'>"+myinfo[7]+"</td><td class='number'>"+myinfo[8]+"</td></tr>"
+
+      outDiv.innerHTML=outDiv.innerHTML+line;
+  }
+}
+
+function saveTextAsFile(){
+   var textToWrite = "<html><head><title>Cipher Challenge Records</title></head><body>" 
+   textToWrite += document.getElementById("output").innerHTML;
+   textToWrite += "</body></html>";
+   var textFileAsBlob = new Blob([textToWrite], {type:'text/html'});
+   var fileNameToSaveAs = document.getElementById("filename").value;
+
+   var downloadLink = document.createElement("a");
+   downloadLink.href = window.webkitURL.createObjectURL(textFileAsBlob);
+   downloadLink.download = fileNameToSaveAs;
+   downloadLink.click();
+
+}
+
+function clear_store(){
+localStorage.clear()
+
+}
+
+</script>
+</head>
+
+<body>
+<div id="output">
+<style>
+td, th {
+   border:1px black solid;
+}
+td.number{
+   text-align:center;
+}
+tr.noneright{
+   background:#ff0000;
+}
+tr.allright{
+   background: #01df3a;
+}
+tr.someright{
+   background: lightblue;
+}
+th {
+    vertical-align:bottom;
+}
+</style>
+<table id="resultTable">
+<thead id="theader">
+<tr><th>First Name</th><th>Last Name</th><th>DoB</th><th>School</th><th>E-Mail</th><th>Tries<br/>(1st cipher)</th><th>Success?</th><th>Tries<br/>(2nd cipher)</th><th>Success?</th></tr>
+</thead>
+<tbody id="tab-body">
+
+</tbody>
+</table>
+</div>
+<button onclick="clear_store()">Clear Records</button>
+<form>
+<input id="filename"></input>
+<button onclick="saveTextAsFile();">Save text to file</button>
+</form>
+</body>
+<script>displayScores();</script>
+</html>
