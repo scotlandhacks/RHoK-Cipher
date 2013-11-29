@@ -77,7 +77,7 @@
            <input id="input_name" size="15"></input><br />
                   Your code name is <span id="crypto_name"></span>.<br />
                   <input id="agentnym" type="hidden" name="agentnym" readonly="readonly"></input>
-           <input type="submit" value="Open The Safe" class="subbtn" />
+           <input id="openSafe" type="submit" value="Open The Safe" class="subbtn" />
                 </form>
             </div>
             <div class="alert" id="incorrectMsg">
@@ -172,6 +172,7 @@
    function doDM(){
      // in this page no one hits submit unless 
      // they got the answer right already.
+     $("#openSafe").hide();
      return 1;
     };
 
