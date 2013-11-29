@@ -15,11 +15,14 @@
 <script type="text/javascript">
 function displayScores(){
   var myinfo, line;
+  // BTW, there is an extra "done" page (no cipher) to ignore
+  var pageLength = Object.keys(pages).length-1;
+
   // This is where we print the header line for the table
 
    var theadLine = "<tr><th>First Name</th><th>Last Name</th><th>DoB</th><th>School</th><th>E-Mail</th>";
     for (page in Object.keys(pages)){
-     if (page > 0) {
+     if (page > 0 && page < pageLength) {
         theadLine = theadLine+"<th>Tries<br />cipher "+page+"</th><th>Success?</th>";
         
      }
@@ -29,10 +32,8 @@ function displayScores(){
   var outDiv = document.getElementById('tab-body');
   for( i in localStorage){
       myinfo = JSON.parse(localStorage[i]);
-      // If they got success on all pages, be green
-      // BTW, there is an extra "done" page (no cipher) to ignore
-      var pageLength = Object.keys(pages).length-1;
       var cipherLength = Object.keys(myinfo.cipher).length;
+      // If they got success on all pages, be green
       if(pageLength == cipherLength){
          if(myinfo.cipher[cipherLength-1]["success"] == "1" ){
       line = "<tr class='allright'>";
@@ -43,7 +44,14 @@ function displayScores(){
       } else {
       line = "<tr class='someright'>";
       }
-     line += "<td>"+myinfo.fname+"</td><td>"+myinfo.lname+"</td><td>"+myinfo.dob+"</td><td>"+myinfo.school+"</td><td>"+myinfo.email+"</td><td class='number'>"+myinfo[5]+"</td><td class='number'>"+myinfo[6]+"</td><td class='number'>"+myinfo[7]+"</td><td class='number'>"+myinfo[8]+"</td></tr>"
+     line += "<td>"+myinfo.fname+"</td><td>"+myinfo.lname+"</td><td>"+myinfo.dob+"</td><td>"+myinfo.school+"</td><td>"+myinfo.email+"</td>"
+ 
+      for(c in myinfo.cipher){
+        if (c > 0 && c < pageLength){
+          line += "<td class='number'>"+myinfo.cipher[c].tries+"</td><td class='number'>"+myinfo.cipher[c].success+"</td>";
+         }
+       }
+     line += "</tr>"
 
       outDiv.innerHTML=outDiv.innerHTML+line;
   }
