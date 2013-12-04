@@ -17,7 +17,9 @@ You are now ready for participants to play the challenges.
 
 
 ##Extending the program
+Create new ciphers using the cipher-template.html file. The template is a self-documented tool for creating new cipher challenges. Follow the directions in the comments of cipher-template.html to connect your own HTML5/jquery/javascript cipher challenge into the tracking mechanisms of the full program.
 
+Use pageOrder.js to list the pages that you want to run in the correct order. The first page (pages "0") should always be index and the last page should always be "done".  
 
 ## Authoring History
 This application was first created by an unknown coder at [PWC](http://www.pwc.com) in support of the Cyber Security Challenge UK in (year?). 
