@@ -1,19 +1,29 @@
-# RHoK-Cipher
+# Cyber Security Challenge UK Cipher
+The present browser-based cipher challenge, developed for the [Cyber Security Challenge UK](https://cybersecuritychallenge.org.uk/), is designed to be flexible enough to last for many years to come and to be used in many different challenge environments. The basic program allows for new ciphers to be created and for ciphers to be rearranged in ways that are engaging for their target audiences as stories as well as puzzles. 
 
-![Cipher wheel screenshot](https://raw.github.com/capncodewash/RHoK-Cipher/master/RHoK-cipher/rhok-encoder-wheel-screenshot-small.png)
+The default setup for the cipher challenge if you download it directly from the master branch of this repository is suitable for young people aged 9 to 11. Different ciphers, or different story-line versions of the present cipher pages, can be slotted into place to make the challenge suitable for ages through adult.
 
-RHoK-Cipher is a demonstrator for a cryptography education project. It is aimed at children aged 8 to 16, and attempts to provide an engaging way to teach the fundamental principles of cryptography.
+## Usage
+* To use the cipher challenge, download the zip file and unpack it onto a USB drive. 
+* From a modern browser, open the records.html file from the USB and click the "clear records" button to make sure that there is no stray data in localStorage before the challenge begins, then close records.html.
+* In the same browser tab, open the index.html file. 
+You are now ready for participants to play the challenges.
 
-The authors of the system intend it to include material on the following topics:
-* Substitution ciphers
-* The Playfair cipher
-* The 'Battleships' cipher
-* Diffie-Hellman key exchange
-* One-time pads
-* Steganography using images
+* At the end of the session or the day, open records.html once again.
+* Write a name for your records file in the text box and click "Save text to file". (example: "cheltenhamScienceCipherLaptop1" for the records saved from laptop 1 at the Cheltenham Science Festival)
+* If the file was saved to the computer's "Downloads" file, make sure to move it to your USB disk so that you can take it back to the office!
+* The records are now saved into an HTML file. (Coming soon: save to csv)
+* Click the "Clear Records" button to make sure that the personal data of the participants is cleaned off the computer's memory.
 
-RHoK-Cipher extends an existing cryptography learning environment with an exciting storyline involving espionage, intrigue and character development. It also improves upon the existing project in terms of ease-of-use, information design and in providing for a variety of learning styles.
 
-RHoK-Cipher was developed at the [Random Hacks of Kindness Glasgow Cybersecurity Special Event ](http://scotlandhacks.org.uk/content/rhok-glasgow-cybersecurity-special-event-2013), 7th-8th September 2013.
+##Extending the program
 
-Made with love by **Team Fairycakes**.
+
+## Authoring History
+This application was first created by an unknown coder at [PWC](http://www.pwc.com) in support of the Cyber Security Challenge UK in (year?). 
+
+In 2012, the Challenge asked [Paul Mason](https://github.com/pdm126) to alter the code so that it could be re-used. The challenge was to add a mechanism to save the data about participants and their success rate without requiring a server connection. Everything had to be self-contained and run on a single USB disk plugged into any computer with a web browser. Paul consulted with [Lisha Sterling](https://github.com/lishevita), and together they came up with a solution that would run successfully at the Cheltenham Science Festival.
+
+Building on that success, Paul suggested to Cyber Security Challenge UK that the project could be greatly improved with the help of designers and coders involved in the [Random Hacks of Kindness Cybersecurity Special Event in Glasgow in September 2013](http://scotlandhacks.org.uk/content/random-hacks-kindness-cybersecurity-event-report). At that event, "Team Fairycakes" created new code for more interactive challenges, more appealing designs, and [a suggested story line](http://scotlandhacks.org.uk/content/rhoksec-cipher-challenge) for a complete challenge aimed at students aged 9 to 11.
+
+After RHoKsec, work was continued by [Andrew Gil](https://github.com/ZephrFish), Lisha, and Paul to bring the project to its current state.
